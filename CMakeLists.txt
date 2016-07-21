@@ -397,7 +397,7 @@ endif()
 
 message(STATUS "Final CXX flags ${CMAKE_CXX_FLAGS}")
 add_subdirectory(lib)
-add_subdirectory(tools)
+#add_subdirectory(tools)
 add_subdirectory(bindings)
 
 # -----------------------------------------------------------------------------
@@ -441,11 +441,13 @@ set(STP_CONFIG_VERSION_FILENAME "STPConfigVersion.cmake")
 
 # Export targets
 if (Boost_FOUND)
-  export(TARGETS stp stp_simple ${STP_SHARED_LIBRARY} ${STP_STATIC_LIBRARY}
+#  export(TARGETS stp stp_simple ${STP_SHARED_LIBRARY} ${STP_STATIC_LIBRARY}
+  export(TARGETS ${STP_SHARED_LIBRARY} ${STP_STATIC_LIBRARY}
     FILE "${PROJECT_BINARY_DIR}/${STP_TARGETS_FILENAME}"
   )
 else()
-  export(TARGETS stp_simple ${STP_SHARED_LIBRARY} ${STP_STATIC_LIBRARY}
+#  export(TARGETS stp_simple ${STP_SHARED_LIBRARY} ${STP_STATIC_LIBRARY}
+  export(TARGETS ${STP_SHARED_LIBRARY} ${STP_STATIC_LIBRARY}
     FILE "${PROJECT_BINARY_DIR}/${STP_TARGETS_FILENAME}"
   )
 endif()
